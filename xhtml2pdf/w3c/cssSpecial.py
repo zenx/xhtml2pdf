@@ -45,10 +45,15 @@ log = logging.getLogger("ho.css")
 
 
 def toList(value):
-    if type(value) != types.ListType:
-        return [value]
-    return value
-
+    try:
+        if type(value) != types.ListType:
+            return [value]
+        return value
+    except AttributeError:
+        # python3
+        if type(value) != list:
+            return [value]
+        return value
 
 _styleTable = {
     "normal": "",
