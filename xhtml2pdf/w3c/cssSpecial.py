@@ -161,8 +161,10 @@ def getNextPart(parts):
 
 
 def isSize(value):
-    return value and ((type(value) is types.TupleType) or value == "0")
-
+    try:
+        return value and ((type(value) is types.TupleType) or value == "0")
+    except AttributeError:
+        return value and ((type(value) is tuple) or value == "0")
 
 def splitBorder(parts):
     """
