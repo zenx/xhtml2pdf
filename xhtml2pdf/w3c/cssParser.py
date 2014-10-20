@@ -1168,7 +1168,7 @@ class CSSParser(object):
             rexpression = self.re_string
         result = rexpression.match(src)
         if result:
-            strres = filter(None, result.groups())
+            strres = [x for x in result.groups()]
             if strres:
                 strres = strres[0]
             else:
